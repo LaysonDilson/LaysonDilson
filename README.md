@@ -121,3 +121,5 @@ A multi-tenant B2B SaaS platform in production — designed and built end-to-end
 ---
 
 <p align="center"><i>"Build it well, document it clearly, and leave the codebase better than you found it."</i></p>
+
+<!-- Profile updated -->
