@@ -111,16 +111,6 @@ A multi-tenant B2B SaaS platform in production — designed and built end-to-end
 
 ---
 
-## GitHub Stats
-![Layson's Stats](https://github-readme-stats.vercel.app/api?username=LaysonDilson&show_icons=true&count_private=true&theme=dark)
-
-<p>
-  <img src="https://github-readme-stats.vercel.app/api?username=LaysonDilson&show_icons=true&theme=default&hide_border=true&count_private=true" alt="GitHub Stats" height="170">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=LaysonDilson&layout=compact&theme=default&hide_border=true&langs_count=8" alt="Top Languages" height="170">
-</p>
-
----
-
 <p align="center"><i>"Build it well, document it clearly, and leave the codebase better than you found it."</i></p>
 
 <!-- Profile updated -->
