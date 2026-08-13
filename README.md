@@ -14,8 +14,6 @@
   <a href="https://www.linkedin.com/in/laysondilson"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
   &nbsp;
   <a href="mailto:laysondilson@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" alt="Email"></a>
-  &nbsp;
-  <a href="https://rowdz.com.br"><img src="https://img.shields.io/badge/Rowdz-00F2FF?style=flat&logoColor=white" alt="Rowdz"></a>
 </p>
 
 ---
@@ -58,9 +56,10 @@ contact with reality:
 Plus a section on why tool docstrings are the entire interface contract a model sees — and what happens
 when they are written carelessly.
 
-### [Rowdz](https://rowdz.com.br) · founder & architect
+### Rowdz · founder & architect · 2025–2026
 
-Multi-tenant B2B SaaS in production, built end-to-end solo.
+Multi-tenant B2B SaaS, designed, built, shipped and operated end-to-end solo. Discontinued in 2026 —
+listed here for the engineering, which is the part that transfers.
 
 - Strict tenant isolation via `TenantContext` (ThreadLocal), enforced at every repository query
 - Production migration **PostgreSQL → MongoDB** in 11 incremental phases, dual-write, zero downtime
