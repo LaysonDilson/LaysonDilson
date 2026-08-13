@@ -1,8 +1,13 @@
 <h1 align="center">Layson Dilson Souza Santos</h1>
-<p align="center"><b>Tech Lead &nbsp;|&nbsp; Software Architect</b></p>
+<p align="center"><b>AI Engineer &nbsp;|&nbsp; Software Architect</b></p>
 <p align="center">
-  Senior Backend Engineer with 13+ years building distributed systems in Java<br>
-  Currently at <a href="https://picpay.com">PicPay</a> &middot; Based in Rio de Janeiro, Brazil
+  13+ years building distributed systems in Java — now building systems<br>
+  where the LLM is <i>part of the architecture</i>, not a chatbot bolted on top.<br>
+  Rio de Janeiro, Brazil
+</p>
+
+<p align="center">
+  <b>🟢 Available for contract work</b> — part-time allocation (2–3 days/week) or fixed-scope projects
 </p>
 
 <p align="center">
@@ -15,19 +20,69 @@
 
 ---
 
-## About
+## What I do
 
-Architect and senior engineer focused on **high-performance distributed systems**, **event-driven architectures**, and **cloud-native platforms**. Career spans fintech (PicPay, Bradesco, Santander), streaming (GloboPlay), and e-commerce (iFood) — designing systems that handle 10k+ req/s with 99.99% uptime, leading migrations, and mentoring teams.
+I design and run **AI-native systems in production** — not demos. The distinction that matters: my day
+job is an operation with real money in it, and the software that runs it is software I built.
 
-Strong advocate for **Clean / Hexagonal Architecture**, **Domain-Driven Design**, and engineering excellence. Equally comfortable defining standards, writing the trickiest service, or onboarding a new squad.
+- **MCP servers as a product surface.** A 35-tool Model Context Protocol server that gives an LLM agent
+  read *and* write access to a live manufacturing operation: order ingestion from two marketplaces,
+  production scheduling against shipping deadlines, FIFO material costing. Used every day. A public
+  reference implementation of the architecture is below.
+- **Self-hosted AI pipelines.** GPU-backed containers running `faster-whisper large-v3` and programmatic
+  video rendering, orchestrated in n8n, at a marginal cost of about R$0.47 per finished piece.
+- **Protocol-level integration.** A heterogeneous fleet of 3D printers behind adapters for HTTP REST,
+  WebSocket, and MQTT-over-TLS + FTPS, bridged into an event-driven automation layer.
+- **The Java underneath.** Fintech, streaming, and e-commerce at scale — 10k+ req/s, 99.99% uptime,
+  event-driven architectures, and the migrations nobody volunteers for.
 
-- Currently pushing **AI-assisted productivity** adoption inside my squad at PicPay, aligned with the architecture team's guidelines
-- Solo-building [**Rowdz**](https://rowdz.com.br), a multi-tenant SaaS in production
-- Open to senior-level **Tech Lead / Architect** opportunities
+The combination is the point: most people doing LLM work have never run a system under load, and most
+people who have run systems under load treat AI as autocomplete.
+
+---
+
+## Featured
+
+### [mcp-ops-server](https://github.com/LaysonDilson/mcp-ops-server) · public reference implementation
+
+An MCP server giving an LLM agent **safe write access** to a real operations database. ~1,000 lines,
+11 tools, 29 tests, runnable demo. It exists to show the four rules that make agent-facing data survive
+contact with reality:
+
+- order status is **derived** from its items, never assigned — there is no code path where an agent marks
+  unproduced work as ready
+- re-importing a channel export **preserves production progress** instead of resetting it
+- header-level money is read **once per order**, never summed per line
+- stock balance is a **sum over an append-only log**, never a stored counter
+
+Plus a section on why tool docstrings are the entire interface contract a model sees — and what happens
+when they are written carelessly.
+
+### [Rowdz](https://rowdz.com.br) · founder & architect
+
+Multi-tenant B2B SaaS in production, built end-to-end solo.
+
+- Strict tenant isolation via `TenantContext` (ThreadLocal), enforced at every repository query
+- Production migration **PostgreSQL → MongoDB** in 11 incremental phases, dual-write, zero downtime
+- OAuth 2.0, AES-256-GCM token encryption at rest, HMAC webhook validation
+- Domain-Driven Design with bounded contexts and domain events
+- 248 automated tests (unit + integration via Testcontainers) → GitHub Actions → Cloud Run
+
+**Stack:** Java 21 · Spring Boot 3 · React + TypeScript · MongoDB Atlas · GCP Cloud Run
 
 ---
 
 ## Tech Stack
+
+**AI & Automation**
+<p>
+  <img src="https://img.shields.io/badge/MCP-000000?style=flat&logo=anthropic&logoColor=white">
+  <img src="https://img.shields.io/badge/n8n-EA4B71?style=flat&logo=n8n&logoColor=white">
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white">
+  <img src="https://img.shields.io/badge/Whisper-000000?style=flat&logo=openai&logoColor=white">
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white">
+</p>
 
 **Languages**
 <p>
@@ -37,14 +92,14 @@ Strong advocate for **Clean / Hexagonal Architecture**, **Domain-Driven Design**
   <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white">
 </p>
 
-**Frameworks &amp; Runtimes**
+**Frameworks & Runtimes**
 <p>
   <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white">
   <img src="https://img.shields.io/badge/Quarkus-4695EB?style=flat&logo=quarkus&logoColor=white">
   <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black">
 </p>
 
-**Cloud &amp; Infrastructure**
+**Cloud & Infrastructure**
 <p>
   <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat&logo=googlecloud&logoColor=white">
   <img src="https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazonaws&logoColor=white">
@@ -53,11 +108,12 @@ Strong advocate for **Clean / Hexagonal Architecture**, **Domain-Driven Design**
   <img src="https://img.shields.io/badge/Argo%20CD-EF7B4D?style=flat&logo=argo&logoColor=white">
 </p>
 
-**Event-Driven &amp; Messaging**
+**Event-Driven & Messaging**
 <p>
   <img src="https://img.shields.io/badge/Apache%20Kafka-231F20?style=flat&logo=apache-kafka&logoColor=white">
   <img src="https://img.shields.io/badge/Pub%2FSub-4285F4?style=flat&logo=googlecloud&logoColor=white">
   <img src="https://img.shields.io/badge/RabbitMQ-FF6600?style=flat&logo=rabbitmq&logoColor=white">
+  <img src="https://img.shields.io/badge/MQTT-660066?style=flat&logo=mqtt&logoColor=white">
 </p>
 
 **Databases**
@@ -66,10 +122,10 @@ Strong advocate for **Clean / Hexagonal Architecture**, **Domain-Driven Design**
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white">
   <img src="https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white">
   <img src="https://img.shields.io/badge/DynamoDB-4053D6?style=flat&logo=amazondynamodb&logoColor=white">
-  <img src="https://img.shields.io/badge/Firestore-FFA000?style=flat&logo=firebase&logoColor=white">
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white">
 </p>
 
-**Observability &amp; Quality**
+**Observability & Quality**
 <p>
   <img src="https://img.shields.io/badge/Datadog-632CA6?style=flat&logo=datadog&logoColor=white">
   <img src="https://img.shields.io/badge/Dynatrace-1496FF?style=flat&logo=dynatrace&logoColor=white">
@@ -80,37 +136,38 @@ Strong advocate for **Clean / Hexagonal Architecture**, **Domain-Driven Design**
 
 ---
 
-## Featured Project
-
-### [Rowdz](https://rowdz.com.br) &middot; Founder &amp; Architect
-
-A multi-tenant B2B SaaS platform in production — designed and built end-to-end as solo founder. Showcases full ownership over architecture, infrastructure, security, and delivery.
-
-**Architecture highlights**
-- Strict tenant isolation via `TenantContext` (ThreadLocal) enforced at every repository query
-- Domain-Driven Design with bounded contexts, polymorphic modeling, and domain events for cross-context decoupling
-- Production database migration **PostgreSQL → MongoDB** in 11 incremental phases with dual-write strategy and zero downtime
-- External API integrations with OAuth 2.0, AES-256-GCM token encryption at rest, and HMAC webhook validation
-- 248 automated tests (unit + integration via Testcontainers) feeding a GitHub Actions → Cloud Run pipeline
-
-**Stack:** Java 21 &middot; Spring Boot 3 &middot; React + TypeScript + Vite + TailwindCSS &middot; MongoDB Atlas &middot; GCP Cloud Run
-
----
-
-## Career Highlights
+## Career
 
 | Period | Company | Role |
 |---|---|---|
-| **Feb 2026 – Present** | **PicPay** | Senior Software Engineer |
-| Mar 2025 – Aug 2025 | CI&amp;T (Bradesco) | Senior Architect |
+| **2026 – Present** | **print3dlm** | Founder — operating a manufacturing business on software I build |
+| Feb 2026 – Jul 2026 | PicPay | Senior Software Engineer |
+| Mar 2025 – Aug 2025 | CI&T (Bradesco) | Senior Architect |
 | Nov 2024 – Jan 2025 | Invillia (iFood) | Senior Software Engineer |
 | Nov 2022 – Nov 2024 | NTConsult (GloboPlay) | Senior Software Engineer |
 | Jan 2021 – Nov 2022 | Niky | Java Architect |
 | May 2019 – Dec 2020 | GFT (Santander) | Java Architect |
 | Jun 2016 – May 2019 | Zup Innovation | Senior Java Developer |
 
+BSc Computer Science, Universidade Federal de Uberlândia · Portuguese (native), English (professional working proficiency)
+
+---
+
+## Working together
+
+Three formats, whichever fits:
+
+| Format | What it looks like |
+|---|---|
+| **Part-time allocation** | 2–3 days a week as technical reinforcement for your team — no hiring overhead |
+| **Fixed-scope project** | Integration, automation, data migration, importer. Defined scope, price and deadline |
+| **Advisory** | Architecture review, technical decision support, code review |
+
+Where I add the most value right now: **connecting a system you already have to an agent that can query
+and act on it** — safely, with an audit trail, and without a rewrite.
+
+📬 [laysondilson@gmail.com](mailto:laysondilson@gmail.com) · [LinkedIn](https://www.linkedin.com/in/laysondilson)
+
 ---
 
 <p align="center"><i>"Build it well, document it clearly, and leave the codebase better than you found it."</i></p>
-
-<!-- Profile updated -->
