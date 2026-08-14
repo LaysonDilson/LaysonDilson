@@ -139,7 +139,7 @@ listed here for the engineering, which is the part that transfers.
 
 | Period | Company | Role |
 |---|---|---|
-| **2026 – Present** | **print3dlm** | Founder — operating a manufacturing business on software I build |
+| **Aug 2025 – Present** | **print3dlm** | Founder — operating a manufacturing business on software I build |
 | Feb 2026 – Jul 2026 | PicPay | Senior Software Engineer |
 | Mar 2025 – Aug 2025 | CI&T (Bradesco) | Senior Architect |
 | Nov 2024 – Jan 2025 | Invillia (iFood) | Senior Software Engineer |
